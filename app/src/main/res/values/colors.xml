@@ -10,4 +10,25 @@
     <color name="main_black">#000000</color>
     <color name="main_black_grey">#6D6D6D</color>
 
+    <color name="primary">#3F51B5</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="primary_medium">#7B86D0</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="accent">#FFC107</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+
+    <color name="accent_dark">#FFA000</color>
+    <color name="accent_ripple">#F7F7F7</color>
+
+    <color name="red">#F44336</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="toolbar_drawer_color">@color/white</color>
+
+    <color name="light_grey">#DEDEDE</color>
+    <color name="star_deactivated">#D6D6D6</color>
+
 </resources>

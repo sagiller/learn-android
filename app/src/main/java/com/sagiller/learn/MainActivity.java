@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -84,10 +85,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            ProfileFragment profileFragment = new ProfileFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,profileFragment).commit();
+//            ProfileFragment profileFragment = new ProfileFragment();
+//            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,profileFragment).commit();
         } else if (id == R.id.nav_gallery) {
-
+            IntentStarter intentStarter = new IntentStarter();
+            intentStarter.showAuthentication(this);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
