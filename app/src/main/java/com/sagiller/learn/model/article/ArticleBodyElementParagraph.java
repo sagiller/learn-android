@@ -1,4 +1,4 @@
-package com.sagiller.learn.entity.gson;
+package com.sagiller.learn.model.article;
 
 import com.google.gson.annotations.Expose;
 

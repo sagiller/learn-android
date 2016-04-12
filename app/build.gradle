@@ -33,6 +33,8 @@ dependencies {
     //UI
     compile 'com.github.jjhesk:hkm-progress-button:0.15'
     compile 'com.rengwuxian.materialedittext:library:2.0.3'
+    compile 'com.melnykov:floatingactionbutton:1.3.0'
+    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.1.0'
 
     //UI END
 

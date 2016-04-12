@@ -6,4 +6,9 @@
     <string name="nav_profile">Profile</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="shared_search_action">shareSearchAction</string>
+    <string name="shared_article_title">shareArticleTitle</string>
+    <string name="shared_toolbar">shareToolbar</string>
+
 </resources>

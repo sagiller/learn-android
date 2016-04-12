@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.sagiller.learn.func.article.ArticleActivity;
 import com.sagiller.learn.func.login.LoginActivity;
+import com.sagiller.learn.model.article.Article;
 
 
 /**
@@ -23,6 +25,17 @@ public class IntentStarter {
 
   public void showAuthentication(Context context) {
     context.startActivity(new Intent(context, LoginActivity.class));
+  }
+
+  public void showArticle(Context context, Article article, Bundle activityTransitionBundle) {
+    Intent i = null;
+    if (isTablet(context)) {
+    } else {
+      i = new Intent(context, ArticleActivity.class);
+      i.putExtra(ArticleActivity.KEY_ARTICLE, article);
+    }
+
+    context.startActivity(i);
   }
 
 }

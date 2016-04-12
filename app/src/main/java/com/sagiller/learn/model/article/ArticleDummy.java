@@ -1,20 +1,22 @@
-package com.sagiller.learn.dummy;
+package com.sagiller.learn.model.article;
 
 import com.sagiller.learn.constant.Constants;
 import com.sagiller.learn.json.gson.JsonUtil;
-import com.sagiller.learn.entity.gson.Article;
-import com.sagiller.learn.entity.gson.ArticleBodyElement;
-import com.sagiller.learn.entity.gson.ArticleBodyElementImage;
-import com.sagiller.learn.entity.gson.ArticleBodyElementParagraph;
+import com.sagiller.learn.model.dummy.BaseDummy;
 
 import java.util.ArrayList;
 
 /**
  * Created by sagiller on 16/4/8.
  */
-public class ArticleDummy extends BaseDummy{
+public class ArticleDummy extends BaseDummy {
 
     public static final Article getArticleById(int id) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // e.printStackTrace();
+        }
         Article origionArticle = new Article();
         origionArticle.setId(1);
         origionArticle.setDesc("我是文章描述");

@@ -20,6 +20,7 @@ package com.sagiller.learn.dagger;
 
 import com.sagiller.learn.model.account.AccountManager;
 import com.sagiller.learn.model.account.DefaultAccountManager;
+import com.sagiller.learn.model.article.ArticleProvider;
 
 import javax.inject.Singleton;
 
@@ -32,6 +33,7 @@ import de.greenrobot.event.EventBus;
  */
 @Module public class AppModule {
     private static AccountManager accountManager = new DefaultAccountManager();
+    private static ArticleProvider articleProvider = new ArticleProvider();
 
     @Singleton @Provides public AccountManager providesAccountManager() {
         return accountManager;
@@ -39,5 +41,9 @@ import de.greenrobot.event.EventBus;
 
     @Singleton @Provides public EventBus providesEventBus() {
         return EventBus.getDefault();
+    }
+
+    @Singleton @Provides public ArticleProvider providersArticleProvider() {
+        return articleProvider;
     }
 }

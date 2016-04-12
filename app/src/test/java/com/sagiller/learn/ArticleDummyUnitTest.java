@@ -1,7 +1,6 @@
 package com.sagiller.learn;
 
-import com.sagiller.learn.constant.Constants;
-import com.sagiller.learn.dummy.ArticleDummy;
+import com.sagiller.learn.model.article.ArticleDummy;
 
 import org.junit.Test;
 

@@ -3,6 +3,8 @@ package com.sagiller.learn;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,10 +16,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.sagiller.learn.func.base.BaseActivity;
+import com.sagiller.learn.model.article.Article;
 
-public class MainActivity extends AppCompatActivity
+import javax.inject.Inject;
+
+
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    @Inject IntentStarter intentStarter;
+    private MainActivityComponent mainActivityComponent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,10 +97,14 @@ public class MainActivity extends AppCompatActivity
 //            ProfileFragment profileFragment = new ProfileFragment();
 //            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,profileFragment).commit();
         } else if (id == R.id.nav_gallery) {
-            IntentStarter intentStarter = new IntentStarter();
             intentStarter.showAuthentication(this);
         } else if (id == R.id.nav_slideshow) {
+            ActivityOptionsCompat options =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                            Pair.create(findViewById(R.id.toolbar),
+                                    getString(R.string.shared_toolbar)));
 
+            intentStarter.showArticle(this, new Article(), options.toBundle());
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -103,5 +116,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    protected void injectDependencies() {
+        mainActivityComponent = DaggerMainActivityComponent.create();
+        mainActivityComponent.inject(this);
     }
 }

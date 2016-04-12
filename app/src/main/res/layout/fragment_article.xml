@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.melnykov.fab.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:fillViewport="true"
+        >
+
+        <RelativeLayout
+            android:id="@+id/scrollContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/mail_item_padding_left_right"
+            android:paddingRight="@dimen/mail_item_padding_left_right"
+            android:paddingBottom="@dimen/mail_item_padding_left_right"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/mail_item_padding_left_right"
+                android:textSize="@dimen/details_subject_text_size"
+                android:textColor="@color/primary_text"
+                android:transitionName="@string/shared_article_title"
+                tools:text="Subject Subject Subject"
+                />
+            <TextView
+                android:id="@+id/contentView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:textSize="16sp"
+                android:textColor="@color/secondary_text"
+                tools:text="Sender Name - "
+                />
+            <include layout="@layout/view_loading"/>
+            <include layout="@layout/view_error"/>
+
+
+        </RelativeLayout>
+    </com.melnykov.fab.ObservableScrollView>
+
+    <com.melnykov.fab.FloatingActionButton
+        xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_search"
+        android:visibility="gone"
+        android:transitionName="@string/shared_search_action"
+        fab:fab_colorNormal="@color/accent"
+        fab:fab_colorPressed="@color/accent_dark"
+        fab:fab_colorRipple="@color/accent"
+        />
+
+</RelativeLayout>

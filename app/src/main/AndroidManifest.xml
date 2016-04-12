@@ -11,8 +11,7 @@
         android:name=".App">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +21,11 @@
         <activity
             android:name=".func.login.LoginActivity"
             android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".func.article.ArticleActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:label="">
         </activity>
     </application>
 
