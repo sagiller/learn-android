@@ -119,6 +119,8 @@ public class ArticleFragment extends BaseLceFragment<TextView, Article, ArticleV
     public void setData(Article data) {
         this.article = data;
         titleView.setText(data.getTitle());
+        contentView.setText(data.getDesc());
+        searchView.setVisibility(View.VISIBLE);
     }
 
     @Override

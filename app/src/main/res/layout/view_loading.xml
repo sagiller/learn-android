@@ -26,6 +26,7 @@
         android:indeterminate="true"
         android:layout_gravity="center"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         />
 
 </merge>

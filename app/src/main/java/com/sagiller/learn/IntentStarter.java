@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.sagiller.learn.func.article.ArticleActivity;
 import com.sagiller.learn.func.login.LoginActivity;
+import com.sagiller.learn.func.webview.WebViewActivity;
 import com.sagiller.learn.model.article.Article;
 
 
@@ -14,7 +15,7 @@ import com.sagiller.learn.model.article.Article;
  * A simple helper class that helps to create and launch Intents. It checks if we our device is a
  * phone or a tablet app.
  *
- * @author Hannes Dorfmann
+ * @author sagiller@163.com
  */
 // TODO make it injectable with dagger
 public class IntentStarter {
@@ -33,6 +34,17 @@ public class IntentStarter {
     } else {
       i = new Intent(context, ArticleActivity.class);
       i.putExtra(ArticleActivity.KEY_ARTICLE, article);
+    }
+
+    context.startActivity(i);
+  }
+
+  public void showWeb(Context context, String url, Bundle activityTransitionBundle) {
+    Intent i = null;
+    if (isTablet(context)) {
+    } else {
+      i = new Intent(context, WebViewActivity.class);
+      i.putExtra(WebViewActivity.KEY_URL, url);
     }
 
     context.startActivity(i);

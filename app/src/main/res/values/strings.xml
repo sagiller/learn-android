@@ -11,4 +11,7 @@
     <string name="shared_article_title">shareArticleTitle</string>
     <string name="shared_toolbar">shareToolbar</string>
 
+    <string name="empty_articles">no articles</string>
+
+
 </resources>
