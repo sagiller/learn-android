@@ -34,7 +34,16 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+
+
 ext {
+    versionMajor = 0
+    versionMinor = 1
+    versionPatch = 0
+    versionBuild = 78 // bump for dogfood builds, public betas, etc.
+
+    versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+    versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
     minSdk = 14
     targetSdk = 23
     buildToolsVersion = '23.0.3'
@@ -63,6 +72,7 @@ ext {
     rxjavaVersion = '1.1.0'
     rxandroidVersion = '1.1.0'
     dagger2Version = '2.0'
+    bypassesVersion = '1.0.1'
 
 
     // Test Libs

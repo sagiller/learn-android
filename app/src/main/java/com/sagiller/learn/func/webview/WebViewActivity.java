@@ -3,7 +3,6 @@ package com.sagiller.learn.func.webview;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 
 import com.sagiller.learn.R;
 import com.sagiller.learn.constant.Constants;
@@ -15,7 +14,7 @@ import butterknife.Bind;
 /**
  * Created by sagiller on 16/4/12.
  */
-public class WebViewActivity extends BaseActivity implements WebViewTitleChangeListener{
+public class WebViewActivity extends BaseActivity implements OnWebViewTitleChangeListener {
     public static final String KEY_URL = Constants.INTENT_PARAM_PRE + "WebViewActivity.url";
 
     @Bind(R.id.toolbar) Toolbar toolbar;

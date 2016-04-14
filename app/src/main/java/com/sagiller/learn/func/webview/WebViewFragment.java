@@ -20,13 +20,15 @@ import com.sagiller.learn.func.base.view.RefreshFragment;
 
 
 /**
+ * a fragment to view any webpage.
  * @author sagiller@163.com
+ * @since 0.1.0
  */
 public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewPresenter> implements WebViewView{
 
     @Arg String url;
 
-    private WebViewTitleChangeListener webViewTitleChangeListener;
+    private OnWebViewTitleChangeListener webViewTitleChangeListener;
 
     @Bind(R.id.webview) WebView webview;
 
@@ -109,7 +111,7 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
             }
         });
     }
-    public void setWebViewTitleChangeListener(WebViewTitleChangeListener listener) {
+    public void setWebViewTitleChangeListener(OnWebViewTitleChangeListener listener) {
         webViewTitleChangeListener = listener;
     }
 

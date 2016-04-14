@@ -9,8 +9,8 @@ android {
         applicationId "com.sagiller.learn"
         minSdkVersion 16
         targetSdkVersion rootProject.ext.targetSdk
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        versionName project.VERSION_NAME
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
     buildTypes {
         release {
@@ -93,5 +93,7 @@ dependencies {
     apt 'com.hannesdorfmann.annotatedadapter:processor:' + rootProject.ext.annotatedadapterVersion
     compile 'com.hannesdorfmann.annotatedadapter:annotation:' + rootProject.ext.annotatedadapterVersion
     compile 'com.hannesdorfmann.annotatedadapter:support-recyclerview:' + rootProject.ext.annotatedadapterVersion
+
+    compile 'com.commit451:bypasses:' + rootProject.ext.bypassesVersion
 
 }

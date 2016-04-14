@@ -6,13 +6,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.util.Pair;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +20,7 @@ import com.sagiller.learn.constant.Constants;
 import com.sagiller.learn.func.base.BaseActivity;
 import com.sagiller.learn.func.webview.WebViewFragment;
 import com.sagiller.learn.func.webview.WebViewFragmentBuilder;
-import com.sagiller.learn.func.webview.WebViewTitleChangeListener;
+import com.sagiller.learn.func.webview.OnWebViewTitleChangeListener;
 import com.sagiller.learn.model.article.Article;
 
 import javax.inject.Inject;
@@ -31,7 +29,7 @@ import butterknife.Bind;
 
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener,WebViewTitleChangeListener {
+        implements NavigationView.OnNavigationItemSelectedListener,OnWebViewTitleChangeListener {
 
     @Inject IntentStarter intentStarter;
     @Bind(R.id.toolbar) Toolbar toolbar;
