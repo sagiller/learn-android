@@ -5,11 +5,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.method.LinkMovementMethod;
-import android.transition.TransitionInflater;
-import android.transition.TransitionSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.hannesdorfmann.fragmentargs.annotation.Arg;
@@ -20,7 +17,6 @@ import com.sagiller.learn.IntentStarter;
 import com.sagiller.learn.R;
 import com.sagiller.learn.func.base.view.BaseLceFragment;
 import com.sagiller.learn.model.article.Article;
-import com.sagiller.mvp.common.MvpPresenter;
 import com.sagiller.mvp.viewstate.lce.LceViewState;
 import com.sagiller.mvp.viewstate.lce.data.ParcelableDataLceViewState;
 
@@ -125,25 +121,9 @@ public class ArticleFragment extends BaseLceFragment<TextView, Article, ArticleV
 
         Bypass bypass = new Bypass();
         String markdownString = "#Markdown!**aaaa**##bbbb";
-        markdownString = "# 第一级标题\n" +
-                "~~删除线~~\n" +
-                "**字体加粗**\n" +
-                "```java\n" +
-                "public void setData(Article data) {\n" +
-                "        this.article = data;\n" +
-                "        titleView.setText(data.getTitle());\n" +
-                "        searchView.setVisibility(View.VISIBLE);\n" +
-                "\n" +
-                "        Bypass bypass = new Bypass();\n" +
-                "        String markdownString = \"#Markdown!**aaaa**##bbbb\";\n" +
-                "        markdownString = ;\n" +
-                "        CharSequence string = bypass.markdownToSpannable(markdownString);\n" +
-                "        contentView.setText(string);\n" +
-                "        contentView.setMovementMethod(LinkMovementMethod.getInstance());\n" +
-                "    }\n" +
-                "```\n" +
-                "\n" +
-                "[![图片描述](http://uncodin.github.io/bypass/logo.svg \"图片描述\")](http://uncodin.github.io/bypass/logo.svg \"图片描述\")";
+        markdownString = "# title\n" +
+                "~~delete line~~\n" +
+                "**bold**";
         CharSequence string = bypass.markdownToSpannable(markdownString);
         contentView.setText(string);
         contentView.setMovementMethod(LinkMovementMethod.getInstance());

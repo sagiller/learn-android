@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.util.Pair;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -82,6 +83,8 @@ public class MainActivity extends BaseActivity
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.text_nav_header_name)).setText("Perry Hu");
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.text_nav_header_email)).setText("sagiller@163.com");
         navigationView.setNavigationItemSelectedListener(this);
+        //load default fragment
+        //switchToWebFragment();
     }
     private void dealDrawerSwitch() {
         if (selectedNavigationItemId != 0) {
@@ -101,12 +104,7 @@ public class MainActivity extends BaseActivity
             } else if (selectedNavigationItemId == R.id.nav_manage) {
                 intentStarter.showWeb(this, Constants.URL_WWW_DEVELOPER_ANDROID_COM,null);
             } else if (selectedNavigationItemId == R.id.nav_share) {
-                String url = Constants.URL_WWW_GANK_IO;
-                WebViewFragment fragment = new WebViewFragmentBuilder(url).build();
-                fragment.setWebViewTitleChangeListener(this);
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentContainer, fragment)
-                        .commit();
+                switchToWebFragment();
             } else if (selectedNavigationItemId == R.id.nav_send) {
 
             }
@@ -144,6 +142,16 @@ public class MainActivity extends BaseActivity
         selectedNavigationItemId = item.getItemId();
 
         return true;
+    }
+
+    void switchToWebFragment() {
+
+        String url = Constants.URL_WWW_GANK_IO;
+        WebViewFragment fragment = new WebViewFragmentBuilder(url).build();
+        fragment.setWebViewTitleChangeListener(this);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .commit();
     }
 
     protected void injectDependencies() {

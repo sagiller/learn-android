@@ -94,6 +94,6 @@ dependencies {
     compile 'com.hannesdorfmann.annotatedadapter:annotation:' + rootProject.ext.annotatedadapterVersion
     compile 'com.hannesdorfmann.annotatedadapter:support-recyclerview:' + rootProject.ext.annotatedadapterVersion
 
-    compile 'com.commit451:bypasses:' + rootProject.ext.bypassesVersion
+    //compile 'com.commit451:bypasses:' + rootProject.ext.bypassesVersion
 
 }
