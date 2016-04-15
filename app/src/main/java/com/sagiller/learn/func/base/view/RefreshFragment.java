@@ -68,4 +68,5 @@ public abstract class RefreshFragment<M, V extends MvpLceView<M>, P extends MvpP
     }
   }
 
+
 }

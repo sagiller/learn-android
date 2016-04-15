@@ -1,8 +1,13 @@
 package com.sagiller.learn.func.webview;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -17,6 +22,7 @@ import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.sagiller.learn.App;
 import com.sagiller.learn.R;
 import com.sagiller.learn.func.base.view.RefreshFragment;
+import com.sagiller.learn.utils.ToastUtils;
 
 
 /**
@@ -24,13 +30,13 @@ import com.sagiller.learn.func.base.view.RefreshFragment;
  * @author sagiller@163.com
  * @since 0.1.0
  */
-public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewPresenter> implements WebViewView{
+public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewPresenter> implements WebViewView,ExtendWebView.RequestRuntimePremissions {
 
     @Arg String url;
 
     private OnWebViewTitleChangeListener webViewTitleChangeListener;
 
-    @Bind(R.id.webview) WebView webview;
+    @Bind(R.id.webview) ExtendWebView webview;
 
     @Bind(R.id.progress) ProgressBar progressbar;
 
@@ -52,6 +58,7 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
         webview.getSettings().setJavaScriptEnabled(true);
         setWebChromeClient();
         setWebViewClient();
+        webview.setRequestRuntimePremissions(this);
         currentUrl = url;
     }
 
@@ -90,7 +97,6 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
         webview.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                currentUrl = url;
                 return super.shouldOverrideUrlLoading(view, url);
             }
 
@@ -123,6 +129,11 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
     public void onPause() {
         super.onPause();
         webview.onPause();
+    }
+
+    public void onResume() {
+        super.onResume();
+        webview.onResume();
     }
 
     @Override
@@ -162,9 +173,30 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
         getPresenter().loadCurrentUrl();
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        webview.onRequestPermissionsResult(requestCode,permissions, grantResults);
+    }
+
     @Override protected void injectDependencies() {
         webViewComponent =
                 DaggerWebViewComponent.builder().appComponent(App.getAppComponents()).build();
         webViewComponent.inject(this);
+    }
+
+    @Override
+    public void requestWriteExternalStoragePremissions() {
+
+        int permissionCheck = ContextCompat.checkSelfPermission(this.getContext(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                ToastUtils.show(this.getContext(),"please enable the permission to download");
+            }
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    ExtendWebView.PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+
+        }
     }
 }
