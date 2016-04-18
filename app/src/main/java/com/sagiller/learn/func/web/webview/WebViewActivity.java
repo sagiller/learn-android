@@ -1,4 +1,4 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.webview;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;

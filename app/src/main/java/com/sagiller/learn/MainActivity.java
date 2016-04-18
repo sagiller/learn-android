@@ -5,7 +5,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.util.Pair;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,9 +18,11 @@ import android.widget.TextView;
 
 import com.sagiller.learn.constant.Constants;
 import com.sagiller.learn.func.base.BaseActivity;
-import com.sagiller.learn.func.webview.WebViewFragment;
-import com.sagiller.learn.func.webview.WebViewFragmentBuilder;
-import com.sagiller.learn.func.webview.OnWebViewTitleChangeListener;
+import com.sagiller.learn.func.web.category.WebpageCategoryFragment;
+import com.sagiller.learn.func.web.category.WebpageCategoryFragmentBuilder;
+import com.sagiller.learn.func.web.webview.WebViewFragment;
+import com.sagiller.learn.func.web.webview.OnWebViewTitleChangeListener;
+import com.sagiller.learn.func.web.webview.WebViewFragmentBuilder;
 import com.sagiller.learn.model.article.Article;
 
 import javax.inject.Inject;
@@ -106,7 +107,7 @@ public class MainActivity extends BaseActivity
             } else if (selectedNavigationItemId == R.id.nav_share) {
                 switchToWebFragment();
             } else if (selectedNavigationItemId == R.id.nav_send) {
-
+                switchToWebpageCategoryFragment();
             }
             selectedNavigationItemId = 0;
         }
@@ -152,6 +153,15 @@ public class MainActivity extends BaseActivity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, fragment)
                 .commit();
+        toolbar.setTitle("Webpage");
+    }
+
+    void switchToWebpageCategoryFragment() {
+        WebpageCategoryFragment fragment = new WebpageCategoryFragmentBuilder(1).build();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .commit();
+        toolbar.setTitle("Webpage Categories");
     }
 
     protected void injectDependencies() {

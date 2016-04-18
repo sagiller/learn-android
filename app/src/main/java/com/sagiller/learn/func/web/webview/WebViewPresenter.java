@@ -1,12 +1,9 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.webview;
 
 import com.sagiller.learn.func.base.presenter.BaseRxLcePresenter;
-import com.sagiller.learn.model.article.ArticleProvider;
 import com.sagiller.learn.model.event.LoginSuccessfulEvent;
 
 import javax.inject.Inject;
-
-import de.greenrobot.event.EventBus;
 
 /**
  * Created by sagiller on 16/4/11.

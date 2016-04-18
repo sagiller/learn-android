@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="@dimen/mail_item_padding_left_right"
+    android:paddingRight="@dimen/mail_item_padding_left_right"
+    android:paddingTop="@dimen/mail_item_padding_top_bottom"
+    android:paddingBottom="@dimen/mail_item_padding_top_bottom"
+    >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/list_mail_item_subject_text_size"
+        android:textColor="@color/primary_text"
+        android:layout_alignParentTop="true"
+        android:maxLines="1"
+        android:layout_marginBottom="2dp"
+        android:ellipsize="end"
+        tools:text="Name"
+        />
+
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/secondary_text"
+        android:layout_below="@+id/name"
+        android:layout_marginRight="60dp"
+        android:maxLines="2"
+        tools:text="Sender Name - "
+        />
+
+
+
+</RelativeLayout>

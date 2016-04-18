@@ -1,6 +1,5 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.webview;
 
-import com.sagiller.learn.model.article.Article;
 import com.sagiller.mvp.common.lce.MvpLceView;
 
 /**

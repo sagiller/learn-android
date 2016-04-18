@@ -21,6 +21,8 @@ package com.sagiller.learn.dagger;
 import com.sagiller.learn.model.account.AccountManager;
 import com.sagiller.learn.model.account.DefaultAccountManager;
 import com.sagiller.learn.model.article.ArticleProvider;
+import com.sagiller.learn.model.webpage.Webpage;
+import com.sagiller.learn.model.webpage.WebpageCategoryProvider;
 
 import javax.inject.Singleton;
 
@@ -34,6 +36,7 @@ import de.greenrobot.event.EventBus;
 @Module public class AppModule {
     private static AccountManager accountManager = new DefaultAccountManager();
     private static ArticleProvider articleProvider = new ArticleProvider();
+    private static WebpageCategoryProvider webpageCategoryProvider = new WebpageCategoryProvider();
 
     @Singleton @Provides public AccountManager providesAccountManager() {
         return accountManager;
@@ -45,5 +48,9 @@ import de.greenrobot.event.EventBus;
 
     @Singleton @Provides public ArticleProvider providersArticleProvider() {
         return articleProvider;
+    }
+
+    @Singleton @Provides public WebpageCategoryProvider providerswebpageCategoryProvider() {
+        return webpageCategoryProvider;
     }
 }

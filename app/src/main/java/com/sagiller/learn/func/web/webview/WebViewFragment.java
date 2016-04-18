@@ -1,12 +1,11 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.webview;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,9 +19,12 @@ import android.widget.ProgressBar;
 import butterknife.Bind;
 import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.sagiller.learn.App;
+import com.sagiller.learn.IntentStarter;
 import com.sagiller.learn.R;
 import com.sagiller.learn.func.base.view.RefreshFragment;
 import com.sagiller.learn.utils.ToastUtils;
+
+import javax.inject.Inject;
 
 
 /**
@@ -30,15 +32,17 @@ import com.sagiller.learn.utils.ToastUtils;
  * @author sagiller@163.com
  * @since 0.1.0
  */
-public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewPresenter> implements WebViewView,ExtendWebView.RequestRuntimePremissions {
+public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewPresenter> implements WebViewView,ExtendWebView.EventListener {
 
     @Arg String url;
 
-    private OnWebViewTitleChangeListener webViewTitleChangeListener;
+    @Inject IntentStarter intentStarter;
 
     @Bind(R.id.webview) ExtendWebView webview;
 
     @Bind(R.id.progress) ProgressBar progressbar;
+
+    private OnWebViewTitleChangeListener webViewTitleChangeListener;
 
     private String currentUrl;
 
@@ -58,7 +62,7 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
         webview.getSettings().setJavaScriptEnabled(true);
         setWebChromeClient();
         setWebViewClient();
-        webview.setRequestRuntimePremissions(this);
+        webview.setEventListener(this);
         currentUrl = url;
     }
 
@@ -177,6 +181,16 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         webview.onRequestPermissionsResult(requestCode,permissions, grantResults);
+    }
+
+    @Override
+    public void shareTextViaIntent(String text) {
+        intentStarter.shareTextViaIntent(this.getContext(), text);
+    }
+
+    @Override
+    public void shareImageViaIntent(Uri uri) {
+        intentStarter.shareImageViaIntent(this.getContext(), uri);
     }
 
     @Override protected void injectDependencies() {

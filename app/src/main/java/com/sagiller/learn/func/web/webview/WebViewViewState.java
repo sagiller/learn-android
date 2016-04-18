@@ -1,10 +1,6 @@
-package com.sagiller.learn.func.webview;
-
-import android.os.Bundle;
-import android.support.annotation.NonNull;
+package com.sagiller.learn.func.web.webview;
 
 import com.sagiller.mvp.common.lce.MvpLceView;
-import com.sagiller.mvp.viewstate.RestorableViewState;
 import com.sagiller.mvp.viewstate.lce.LceViewState;
 
 /**

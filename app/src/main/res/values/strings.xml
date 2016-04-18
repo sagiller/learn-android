@@ -12,6 +12,8 @@
     <string name="shared_toolbar">shareToolbar</string>
 
     <string name="empty_articles">no articles</string>
+    <string name="empty_webpages">no webpages</string>
+
 
 
 </resources>

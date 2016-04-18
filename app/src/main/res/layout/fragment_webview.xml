@@ -15,13 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.sagiller.learn.func.webview.ExtendWebView
+        <com.sagiller.learn.func.web.webview.ExtendWebView
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="1dp">
 
-        </com.sagiller.learn.func.webview.ExtendWebView>
+        </com.sagiller.learn.func.web.webview.ExtendWebView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

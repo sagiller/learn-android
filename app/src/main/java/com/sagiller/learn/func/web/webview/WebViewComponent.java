@@ -1,10 +1,8 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.webview;
 
 import com.sagiller.learn.dagger.AppComponent;
 import com.sagiller.learn.dagger.AppModule;
 import com.sagiller.learn.dagger.NavigationModule;
-import com.sagiller.learn.func.article.ArticleFragment;
-import com.sagiller.learn.func.article.ArticlePresenter;
 
 import javax.inject.Singleton;
 

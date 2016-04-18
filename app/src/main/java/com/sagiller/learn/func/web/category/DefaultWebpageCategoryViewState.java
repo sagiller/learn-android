@@ -1,10 +1,10 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.category;
 
 import android.os.Bundle;
 import android.os.Parcel;
 import android.support.annotation.NonNull;
 
-import com.sagiller.mvp.common.MvpView;
+import com.sagiller.learn.func.web.webview.WebViewViewState;
 import com.sagiller.mvp.common.lce.MvpLceView;
 import com.sagiller.mvp.viewstate.RestorableViewState;
 import com.sagiller.mvp.viewstate.lce.ParcelableLceViewState;
@@ -12,7 +12,7 @@ import com.sagiller.mvp.viewstate.lce.ParcelableLceViewState;
 /**
  * Created by sagiller on 16/4/13.
  */
-public class DefaultWebViewViewState<D,V extends MvpLceView<D>> implements WebViewViewState<D,V>,ParcelableLceViewState<D, V> {
+public class DefaultWebpageCategoryViewState<D,V extends MvpLceView<D>> implements WebpageCategoryViewState<D,V>,ParcelableLceViewState<D, V> {
 
     @Override
     public void apply(V view, boolean retained) {

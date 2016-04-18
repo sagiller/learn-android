@@ -1,4 +1,4 @@
-package com.sagiller.learn.func.webview;
+package com.sagiller.learn.func.web.webview;
 
 import android.Manifest;
 import android.app.Activity;
@@ -7,10 +7,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -23,9 +20,9 @@ import com.sagiller.learn.utils.ToastUtils;
  */
 public class ExtendWebView extends WebView {
     private Context mContext;
-    private static final int ID_SAVEIMAGE = 1, ID_VIEWIMAGE = 2, ID_SAVELINK = 3, ID_SHARELINK = 4;
+    private static final int ID_SAVEIMAGE = 1, ID_VIEWIMAGE = 2,ID_SHAREIMAGE = 3, ID_SAVELINK = 4, ID_SHARELINK = 5;
     public static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
-    private RequestRuntimePremissions requestRuntimePremissions;
+    private EventListener eventListener;
 
     public ExtendWebView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -50,6 +47,11 @@ public class ExtendWebView extends WebView {
                     case ID_SAVEIMAGE:
                         checkStoragePermissionThenDownload();
                         break;
+                    case ID_SHAREIMAGE:
+                        eventListener.shareImageViaIntent(Uri.parse(getHitTestResultExtra()));
+                        break;
+                    case ID_SHARELINK:
+                        eventListener.shareTextViaIntent(getHitTestResultExtra());
                 }
 
                 return true;
@@ -61,6 +63,8 @@ public class ExtendWebView extends WebView {
             menu.setHeaderTitle(result.getExtra());
             menu.add(0, ID_SAVEIMAGE, 0, "Save Image").setOnMenuItemClickListener(handler);
             menu.add(0, ID_VIEWIMAGE, 0, "View Image").setOnMenuItemClickListener(handler);
+            menu.add(0, ID_SHAREIMAGE, 0, "Share Image").setOnMenuItemClickListener(handler);
+
         } else if (result.getType() == HitTestResult.ANCHOR_TYPE ||
                 result.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
             menu.setHeaderTitle(result.getExtra());
@@ -74,8 +78,8 @@ public class ExtendWebView extends WebView {
         return result.getExtra();
     }
 
-    public void setRequestRuntimePremissions(RequestRuntimePremissions requestRuntimePremissions) {
-        this.requestRuntimePremissions = requestRuntimePremissions;
+    public void setEventListener(EventListener eventListener) {
+        this.eventListener = eventListener;
     }
 
 
@@ -92,10 +96,10 @@ public class ExtendWebView extends WebView {
         int permissionCheck = ContextCompat.checkSelfPermission(mContext,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            if (requestRuntimePremissions != null) {
-                requestRuntimePremissions.requestWriteExternalStoragePremissions();
+            if (eventListener != null) {
+                eventListener.requestWriteExternalStoragePremissions();
             } else {
-                //TODO Throw RequestRuntimePremissions is null exception
+                //TODO Throw EventListener is null exception
             }
         } else {
             downloadImage(getHitTestResultExtra());
@@ -126,7 +130,9 @@ public class ExtendWebView extends WebView {
             }
         }
     }
-    public interface RequestRuntimePremissions {
+    public interface EventListener {
+        void shareTextViaIntent(String text);
+        void shareImageViaIntent(Uri uri);
         void requestWriteExternalStoragePremissions();
     }
 }

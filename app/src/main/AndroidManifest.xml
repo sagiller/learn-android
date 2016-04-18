@@ -32,7 +32,7 @@
             android:label="">
         </activity>
         <activity
-            android:name=".func.webview.WebViewActivity"
+            android:name=".func.web.webview.WebViewActivity"
             android:windowSoftInputMode="adjustResize"
             android:label="">
         </activity>
