@@ -7,6 +7,7 @@ import com.sagiller.learn.R;
 import com.sagiller.learn.func.base.view.ListAdapter;
 import com.sagiller.learn.func.base.view.RefreshRecyclerFragment;
 import com.sagiller.learn.model.webpage.WebpageCategory;
+import com.sagiller.learn.utils.ToastUtils;
 import com.sagiller.mvp.viewstate.lce.LceViewState;
 
 import java.util.List;
@@ -69,6 +70,7 @@ public class WebpageCategoryFragment extends RefreshRecyclerFragment<List<Webpag
 
     @Override
     public void onItemClicked(WebpageCategoryAdapterHolders.CategoryViewHolder vh, WebpageCategory category) {
-
+        ToastUtils.show(this.getContext(),category.getName());
+        intentStarter.showWebpages(this.getActivity(),category.getId());
     }
 }

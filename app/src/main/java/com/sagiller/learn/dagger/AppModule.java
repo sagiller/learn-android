@@ -23,6 +23,7 @@ import com.sagiller.learn.model.account.DefaultAccountManager;
 import com.sagiller.learn.model.article.ArticleProvider;
 import com.sagiller.learn.model.webpage.Webpage;
 import com.sagiller.learn.model.webpage.WebpageCategoryProvider;
+import com.sagiller.learn.model.webpage.WebpageProvider;
 
 import javax.inject.Singleton;
 
@@ -37,6 +38,7 @@ import de.greenrobot.event.EventBus;
     private static AccountManager accountManager = new DefaultAccountManager();
     private static ArticleProvider articleProvider = new ArticleProvider();
     private static WebpageCategoryProvider webpageCategoryProvider = new WebpageCategoryProvider();
+    private static WebpageProvider webpageProvider = new WebpageProvider();
 
     @Singleton @Provides public AccountManager providesAccountManager() {
         return accountManager;
@@ -50,7 +52,11 @@ import de.greenrobot.event.EventBus;
         return articleProvider;
     }
 
-    @Singleton @Provides public WebpageCategoryProvider providerswebpageCategoryProvider() {
+    @Singleton @Provides public WebpageCategoryProvider providersWebpageCategoryProvider() {
         return webpageCategoryProvider;
+    }
+
+    @Singleton @Provides public WebpageProvider providersWebpageProvider() {
+        return webpageProvider;
     }
 }

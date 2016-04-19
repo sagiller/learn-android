@@ -32,6 +32,11 @@
             android:label="">
         </activity>
         <activity
+            android:name=".func.web.webpage.WebpagesActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:label="">
+        </activity>
+        <activity
             android:name=".func.web.webview.WebViewActivity"
             android:windowSoftInputMode="adjustResize"
             android:label="">

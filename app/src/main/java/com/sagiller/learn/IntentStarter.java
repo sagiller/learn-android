@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.sagiller.learn.func.article.ArticleActivity;
 import com.sagiller.learn.func.login.LoginActivity;
+import com.sagiller.learn.func.web.webpage.WebpagesActivity;
 import com.sagiller.learn.func.web.webview.WebViewActivity;
 import com.sagiller.learn.model.article.Article;
 
@@ -39,6 +40,12 @@ public class IntentStarter {
         context.startActivity(i);
     }
 
+    public void showWebpages(Context context, int categoryId) {
+        Intent intent = new Intent(context, WebpagesActivity.class);
+        intent.putExtra(WebpagesActivity.CATEGORY_ID,categoryId);
+        context.startActivity(intent);
+    }
+
     public void showWeb(Context context, String url, Bundle activityTransitionBundle) {
         Intent i = null;
         if (isTablet(context)) {
@@ -65,5 +72,6 @@ public class IntentStarter {
         sendIntent.setType("image/jpeg");
         context.startActivity(Intent.createChooser(sendIntent, "Share images to.."));
     }
+
 
 }
