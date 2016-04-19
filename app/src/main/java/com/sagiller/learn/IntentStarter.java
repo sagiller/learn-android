@@ -40,9 +40,10 @@ public class IntentStarter {
         context.startActivity(i);
     }
 
-    public void showWebpages(Context context, int categoryId) {
+    public void showWebpages(Context context, int categoryId, String categoryName) {
         Intent intent = new Intent(context, WebpagesActivity.class);
         intent.putExtra(WebpagesActivity.CATEGORY_ID,categoryId);
+        intent.putExtra(WebpagesActivity.CATEGORY_NAME,categoryName);
         context.startActivity(intent);
     }
 

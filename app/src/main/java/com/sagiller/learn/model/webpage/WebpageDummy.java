@@ -15,9 +15,11 @@ public class WebpageDummy extends BaseDummy {
         Webpage webpage = new Webpage();
         webpage.setName("Android");
         webpage.setDesc("Android develop");
+        webpage.setUrl("http://www.baidu.com");
         Webpage webpage1 = new Webpage();
         webpage1.setName("iOS");
         webpage1.setDesc("iOS develop");
+        webpage1.setUrl("http://developer.android.com");
         items.add(webpage);
         items.add(webpage1);
         return items;

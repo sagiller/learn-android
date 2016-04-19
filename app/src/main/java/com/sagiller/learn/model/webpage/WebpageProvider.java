@@ -1,5 +1,7 @@
 package com.sagiller.learn.model.webpage;
 
+import com.sagiller.learn.model.http.okhttp.OkNetworkManager;
+
 import java.util.List;
 
 import rx.Observable;
@@ -11,11 +13,11 @@ import rx.schedulers.Schedulers;
  */
 public class WebpageProvider {
 
-    public Observable<List<Webpage>> getWebpages(final int type) {
+    public Observable<List<Webpage>> getWebpages(final int categoryId) {
         return Observable.create(new Observable.OnSubscribe<List<Webpage>>() {
             @Override
             public void call(Subscriber<? super List<Webpage>> subscriber) {
-                subscriber.onNext(WebpageDummy.getWebpages(type));
+                subscriber.onNext(OkNetworkManager.getWebpages(categoryId));
                 subscriber.onCompleted();
             }
         }).subscribeOn(Schedulers.newThread());

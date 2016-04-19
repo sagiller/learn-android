@@ -60,6 +60,8 @@ dependencies {
      */
     compile 'com.mcxiaoke.volley:library:1.0.+'
 
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+
     /*
         @desc rxandroid&rxjava: desc by short,it's an async task library.
         @link https://github.com/ReactiveX/RxAndroid

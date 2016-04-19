@@ -101,6 +101,7 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
         webview.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                getPresenter().showLoading();
                 return super.shouldOverrideUrlLoading(view, url);
             }
 
@@ -113,6 +114,7 @@ public class WebViewFragment extends RefreshFragment<String,WebViewView,WebViewP
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 currentUrl = view.getUrl();
+                getPresenter().showContent();
             }
 
             @Override

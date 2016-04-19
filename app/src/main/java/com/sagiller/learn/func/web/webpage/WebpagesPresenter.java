@@ -39,7 +39,7 @@ public class WebpagesPresenter extends BaseRxLcePresenter<WebpagesView, List<Web
         eventBus.unregister(this);
     }
 
-    public void getWebpages(int categoryId) {
-        subscribe(webpageProvider.getWebpages(categoryId), false);
+    public void getWebpages(boolean pullToRefresh, int categoryId) {
+        subscribe(webpageProvider.getWebpages(categoryId), pullToRefresh);
     }
 }

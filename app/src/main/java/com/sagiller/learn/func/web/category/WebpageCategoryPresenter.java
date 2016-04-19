@@ -41,7 +41,7 @@ public class WebpageCategoryPresenter extends BaseRxLcePresenter<WebpageCategory
         eventBus.unregister(this);
     }
 
-    public void getWebpageCategorys(int type) {
-        subscribe(webpageCategoryProvider.getcategorys(type), false);
+    public void getWebpageCategorys(boolean pullToRefresh ,int type) {
+        subscribe(webpageCategoryProvider.getcategorys(type), pullToRefresh);
     }
 }

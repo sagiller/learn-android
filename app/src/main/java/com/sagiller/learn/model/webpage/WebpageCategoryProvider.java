@@ -2,6 +2,7 @@ package com.sagiller.learn.model.webpage;
 
 import com.sagiller.learn.model.article.Article;
 import com.sagiller.learn.model.article.ArticleDummy;
+import com.sagiller.learn.model.http.okhttp.OkNetworkManager;
 
 import java.util.List;
 
@@ -18,7 +19,8 @@ public class WebpageCategoryProvider {
         return Observable.create(new Observable.OnSubscribe<List<WebpageCategory>>() {
             @Override
             public void call(Subscriber<? super List<WebpageCategory>> subscriber) {
-                subscriber.onNext(WebpageCategoryDummy.getCategorys(type));
+                //subscriber.onNext(WebpageCategoryDummy.getCategorys(type));
+                subscriber.onNext(OkNetworkManager.getWebpageCategoryModuels());
                 subscriber.onCompleted();
             }
         }).subscribeOn(Schedulers.newThread());

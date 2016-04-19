@@ -58,7 +58,7 @@ public class WebpagesFragment extends RefreshRecyclerFragment<List<Webpage>,Webp
 
     @Override
     public void loadData(boolean pullToRefresh) {
-        getPresenter().getWebpages(categoryId);
+        getPresenter().getWebpages(pullToRefresh, categoryId);
 
     }
 
@@ -70,6 +70,6 @@ public class WebpagesFragment extends RefreshRecyclerFragment<List<Webpage>,Webp
 
     @Override
     public void onItemClicked(WebpagesAdapterHolders.WebpageViewHolder vh, Webpage webpage) {
-        ToastUtils.show(this.getContext(),webpage.getName());
+        intentStarter.showWeb(this.getContext(), webpage.getUrl(),null);
     }
 }

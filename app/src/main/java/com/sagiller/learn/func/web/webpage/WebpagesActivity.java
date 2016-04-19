@@ -17,6 +17,7 @@ import butterknife.Bind;
  */
 public class WebpagesActivity extends BaseActivity{
     public static final String CATEGORY_ID = Constants.INTENT_PARAM_PRE + "WebpagesActivity.categoryId";
+    public static final String CATEGORY_NAME = Constants.INTENT_PARAM_PRE + "WebpagesActivity.categoryName";
 
     @Bind(R.id.toolbar) Toolbar toolbar;
 
@@ -41,23 +42,12 @@ public class WebpagesActivity extends BaseActivity{
 
         if (savedInstanceState == null) {
             int categoryId = getIntent().getIntExtra(CATEGORY_ID,-1);
-            Bundle bundle = new Bundle();
+            String categoryName = getIntent().getStringExtra(CATEGORY_NAME);
+            toolbar.setTitle(categoryName);
             WebpagesFragment fragment = new WebpagesFragmentBuilder(categoryId).build();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, fragment)
                     .commit();
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        WebViewFragment fragment = (WebViewFragment)
-                getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
-        if (fragment != null && fragment.canGoBack()) {
-            fragment.goBack();
-        } else {
-            super.onBackPressed();
         }
     }
 }
