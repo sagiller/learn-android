@@ -34,13 +34,13 @@ public class WebViewPresenter extends BaseRxLcePresenter<WebViewView, String> {
     public void showLoading() {
         //TODO research why webview is still loading data even Fragment is destoried.
         if (this.getView() != null) {
-            this.getView().showLoading(false);
+            //this.getView().showLoading(false);
         }
 
     }
     public void showContent() {
         if (this.getView() != null) {
-            this.getView().showContent();
+            //this.getView().showContent();
         }
     }
 }

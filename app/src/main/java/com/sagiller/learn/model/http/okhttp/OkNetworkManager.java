@@ -34,9 +34,11 @@ public class OkNetworkManager {
     /**
      * API URL
      */
-    public static final String BASE_API_URL = "http://172.20.10.7:8000/api/v1";
-    public static final String API_WEBPAGECATEGORY_MODUELS = BASE_API_URL + "/webpagecategory/modules";
-    public static final String API_WEBPAGECATEGORY_WEBPAGES = BASE_API_URL + "/webpagecategory/%s/webpages";
+    public static final String SIT_BASE_API_URL = "http://172.20.10.7:8000/api/v1";
+    public static final String PROD_BASE_API_URL = "http://kit.sagiller.com/api/v1";
+    public static final String CURRENT_BASE_API_URL = SIT_BASE_API_URL;
+    public static final String API_WEBPAGECATEGORY_MODUELS = CURRENT_BASE_API_URL + "/webpagecategory/modules";
+    public static final String API_WEBPAGECATEGORY_WEBPAGES = CURRENT_BASE_API_URL + "/webpagecategory/%s/webpages";
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");

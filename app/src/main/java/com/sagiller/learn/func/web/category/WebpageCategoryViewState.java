@@ -12,5 +12,6 @@ public interface WebpageCategoryViewState<D, V extends MvpLceView<D>> extends Lc
     final int STATE_SHOW_ERROR = 1;
 
     int state = STATE_SHOW_LOADING;
+    public void setStateShowingCategory();
 }
 

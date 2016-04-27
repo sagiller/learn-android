@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
@@ -10,7 +11,16 @@
     android:paddingTop="@dimen/mail_item_padding_top_bottom"
     android:paddingBottom="@dimen/mail_item_padding_top_bottom"
     >
-
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/icon"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/margin_view_space"
+        fresco:actualImageScaleType="fitXY"
+        fresco:failureImageScaleType="fitXY"
+        fresco:placeholderImageScaleType="fitXY"
+        fresco:roundedCornerRadius="4dp"/>/>
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
@@ -18,6 +28,7 @@
         android:textSize="@dimen/list_mail_item_subject_text_size"
         android:textColor="@color/primary_text"
         android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/icon"
         android:maxLines="1"
         android:layout_marginBottom="2dp"
         android:ellipsize="end"
@@ -32,6 +43,7 @@
         android:textSize="14sp"
         android:textColor="@color/secondary_text"
         android:layout_below="@+id/name"
+        android:layout_toRightOf="@+id/icon"
         android:layout_marginRight="60dp"
         android:maxLines="2"
         tools:text="Sender Name - "

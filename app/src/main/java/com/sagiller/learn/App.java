@@ -2,6 +2,7 @@ package com.sagiller.learn;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.sagiller.learn.dagger.AppComponent;
 import com.sagiller.learn.dagger.DaggerAppComponent;
 import com.sagiller.learn.model.http.okhttp.OkNetworkManager;
@@ -14,12 +15,9 @@ public class App extends Application {
 
     @Override public void onCreate() {
         super.onCreate();
-        initOkHttp();
-        appComponent = DaggerAppComponent.create();
-    }
-
-    private void initOkHttp() {
         OkNetworkManager.initialize();
+        Fresco.initialize(this);
+        appComponent = DaggerAppComponent.create();
     }
 
     public static AppComponent getAppComponents() {

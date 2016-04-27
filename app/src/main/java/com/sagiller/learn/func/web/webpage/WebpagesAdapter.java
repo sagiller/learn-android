@@ -17,9 +17,11 @@
 package com.sagiller.learn.func.web.webpage;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.hannesdorfmann.annotatedadapter.annotation.ViewField;
 import com.hannesdorfmann.annotatedadapter.annotation.ViewType;
 import com.sagiller.learn.R;
@@ -45,6 +47,7 @@ public class WebpagesAdapter extends ListAdapter<List<Webpage>> implements Webpa
             views = {
                     @ViewField(id = R.id.name, name = "name", type = TextView.class),
                     @ViewField(id = R.id.desc, name = "desc", type = TextView.class),
+                    @ViewField(id = R.id.icon, name = "icon", type = SimpleDraweeView.class)
             })
     public final int webpage = 0;
 
@@ -61,6 +64,9 @@ public class WebpagesAdapter extends ListAdapter<List<Webpage>> implements Webpa
         final Webpage webpage = items.get(position);
         vh.name.setText(webpage.getName());
         vh.desc.setText(webpage.getDesc());
+        if (webpage.getIcon() != null) {
+            vh.icon.setImageURI(Uri.parse(webpage.getIcon().getUrl()));
+        }
         vh.itemView.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 clickListener.onItemClicked(vh, webpage);

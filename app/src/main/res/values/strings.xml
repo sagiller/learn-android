@@ -10,6 +10,7 @@
     <string name="shared_search_action">shareSearchAction</string>
     <string name="shared_article_title">shareArticleTitle</string>
     <string name="shared_toolbar">shareToolbar</string>
+    <string name="shared_add_webpage">shareAddWebpage</string>
 
     <string name="empty_articles">no articles</string>
     <string name="empty_webpages">no webpages</string>

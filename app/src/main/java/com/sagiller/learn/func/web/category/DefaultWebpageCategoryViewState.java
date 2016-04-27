@@ -35,6 +35,10 @@ public class DefaultWebpageCategoryViewState<D,V extends MvpLceView<D>> implemen
     }
 
     @Override
+    public void setStateShowingCategory() {
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }

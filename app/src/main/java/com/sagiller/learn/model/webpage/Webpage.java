@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
+import com.sagiller.learn.model.image.Image;
 
 import java.util.Date;
 
@@ -19,6 +20,7 @@ import java.util.Date;
     int status;
     int categoryId;
     int type;
+    Image icon;
     Date createdAt;
     Date updatedAt;
 
@@ -120,5 +122,13 @@ import java.util.Date;
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Image getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Image icon) {
+        this.icon = icon;
     }
 }

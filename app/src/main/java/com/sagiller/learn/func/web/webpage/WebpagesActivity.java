@@ -44,7 +44,7 @@ public class WebpagesActivity extends BaseActivity{
             int categoryId = getIntent().getIntExtra(CATEGORY_ID,-1);
             String categoryName = getIntent().getStringExtra(CATEGORY_NAME);
             toolbar.setTitle(categoryName);
-            WebpagesFragment fragment = new WebpagesFragmentBuilder(categoryId).build();
+            WebpagesFragment fragment = new WebpagesFragmentBuilder(categoryId, categoryName).build();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, fragment)
                     .commit();

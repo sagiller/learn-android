@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.sagiller.learn.func.article.ArticleActivity;
 import com.sagiller.learn.func.login.LoginActivity;
 import com.sagiller.learn.func.web.webpage.WebpagesActivity;
+import com.sagiller.learn.func.web.webpage.create.CreateWebpageActivity;
 import com.sagiller.learn.func.web.webview.WebViewActivity;
 import com.sagiller.learn.model.article.Article;
 
@@ -75,4 +77,10 @@ public class IntentStarter {
     }
 
 
+    public void showCreateWebpage(Context context, int categoryId,String categoryName, Bundle activityTransitionBundle) {
+        Intent i = new Intent(context, CreateWebpageActivity.class);
+        i.putExtra(CreateWebpageActivity.CATEGORY_ID, categoryId);
+        i.putExtra(CreateWebpageActivity.CATEGORY_NAME, categoryName);
+        context.startActivity(i, activityTransitionBundle);
+    }
 }
